@@ -21,8 +21,11 @@ public class ClearableAutoCompleteTextView extends AutoCompleteTextView {
     boolean justCleared = false;
 
     // The image we defined for the clear button
-    public Drawable imgClearButton = getResources().getDrawable(
+    private Drawable imgClearButton = getResources().getDrawable(
             R.drawable.ic_clear);
+
+    private Drawable imgSearchIcon = getResources().getDrawable(
+            R.drawable.ic_search);
 
 
     // if not set otherwise, the default clear listener clears the text in the
@@ -62,9 +65,13 @@ public class ClearableAutoCompleteTextView extends AutoCompleteTextView {
     }
 
     void init() {
-        // Set the bounds of the button
-        this.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                imgClearButton, null);
+        // Set the bounds of the clear button
+//        this.setCompoundDrawablesWithIntrinsicBounds(null, null,imgClearButton, null);
+
+        // Set the bounds of the search icon & clear button
+        this.setCompoundDrawablesWithIntrinsicBounds(imgSearchIcon, null, imgClearButton, null);
+
+        this.setCompoundDrawablePadding(15);
 
         // if the clear button is pressed, fire up the handler. Otherwise do nothing
         this.setOnTouchListener(new OnTouchListener() {
@@ -120,11 +127,11 @@ public class ClearableAutoCompleteTextView extends AutoCompleteTextView {
     }
 
     public void hideClearButton() {
-        this.setCompoundDrawables(null, null, null, null);
+        this.setCompoundDrawables(imgSearchIcon, null, null, null);
     }
 
     public void showClearButton() {
-        this.setCompoundDrawablesWithIntrinsicBounds(null, null, imgClearButton, null);
+//        this.setCompoundDrawablesWithIntrinsicBounds(null, null, imgClearButton, null); // to hide search button when typing
+        this.setCompoundDrawablesWithIntrinsicBounds(imgSearchIcon, null, imgClearButton, null);
     }
-
 }
