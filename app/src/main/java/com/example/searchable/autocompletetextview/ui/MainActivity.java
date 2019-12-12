@@ -1,7 +1,6 @@
-package com.example.searchable.autocompletetextview;
+package com.example.searchable.autocompletetextview.ui;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
@@ -13,6 +12,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.searchable.autocompletetextview.R;
+import com.example.searchable.autocompletetextview.adapter.AutoCompleteCountryAdapter;
+import com.example.searchable.autocompletetextview.model.Country;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -52,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
                                 countryList.add(country);
                             }
 
-                            AutoCompleteTextView editText = findViewById(R.id.actv);
+                            AutoCompleteTextView searchField = findViewById(R.id.actv);
                             AutoCompleteCountryAdapter adapter = new AutoCompleteCountryAdapter(
-                                    MainActivity.this, R.layout.country_autocomplete_row, countryList); //android.R.layout.simple_dropdown_item_1line
-                            editText.setAdapter(adapter);
+                                    MainActivity.this, R.layout.country_autocomplete_row, countryList);
+                            searchField.setAdapter(adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

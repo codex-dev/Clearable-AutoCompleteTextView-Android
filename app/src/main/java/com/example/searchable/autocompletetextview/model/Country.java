@@ -1,4 +1,4 @@
-package com.example.searchable.autocompletetextview;
+package com.example.searchable.autocompletetextview.model;
 
 /**
  * Created by Ravindu Fernando on 2019-12-12 at 09:43 AM

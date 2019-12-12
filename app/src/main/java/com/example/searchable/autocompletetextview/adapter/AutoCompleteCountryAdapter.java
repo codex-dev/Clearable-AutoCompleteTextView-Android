@@ -1,7 +1,6 @@
-package com.example.searchable.autocompletetextview;
+package com.example.searchable.autocompletetextview.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,9 @@ import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.example.searchable.autocompletetextview.model.Country;
+import com.example.searchable.autocompletetextview.R;
 
 import java.util.ArrayList;
 
